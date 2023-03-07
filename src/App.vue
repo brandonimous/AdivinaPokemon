@@ -16,3 +16,9 @@ fetch('https://pokeapi.co/api/v2/pokemon')
     <Posta v-for="posta in posts" :key="posta.url" :name="posta.name" :url="posta.url"></Posta>
   </div>
 </template>
+
+<style>
+.oscurecer {
+  filter: brightness(0%);
+}
+</style>
