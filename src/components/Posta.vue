@@ -8,6 +8,14 @@ const id = pokemonProp.url.split('/')[6] + '.png';
 <template>
     <div class="container">
         <h3>{{ name }}</h3>
-        <img class="oscurecer" :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id" />
+
+        <div class="icon">
+            <div class="icon-content">
+                <img class="oscurecer"
+                :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id" />
+            </div>
+        </div>
     </div>
 </template>
+
+
