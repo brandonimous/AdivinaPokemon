@@ -7,15 +7,21 @@ const id = pokemonProp.url.split('/')[6] + '.png';
 </script>
 
 <template>
-    <div class="container">
-        <h3>{{ name }}</h3>
+    <div class="">
+        <div class="card">
+            <div class="card-content">
+                <h3>{{ name }}</h3>
 
-        <div class="icon">
-            <div class="icon-content">
-                <img class="oscurecer"
-                :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id" />
+                <div class="icon">
+                    <div class="icon-content">
+                        <img class="oscurecer"
+                            :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id" />
+                    </div>
+                </div>
             </div>
         </div>
+
+
     </div>
 </template>
 
