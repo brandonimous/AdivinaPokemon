@@ -2,6 +2,7 @@
 const pokemonProp = defineProps(['name', 'url', 'id']);
 
 const id = pokemonProp.url.split('/')[6] + '.png';
+
 //console.log(id);
 </script>
 
