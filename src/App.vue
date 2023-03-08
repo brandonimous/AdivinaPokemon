@@ -1,13 +1,25 @@
 <script setup>
 import Posta from "./components/Posta.vue";
 
-import { ref } from "vue";
+import { ref, onMounted  } from "vue";
 
 const posts = ref([]);
 
-fetch('https://pokeapi.co/api/v2/pokemon')
+var pokemon = ref(null);
+
+/*fetch('https://pokeapi.co/api/v2/pokemon')
   .then(res => res.json())
-  .then(data => posts.value = data.results);
+  .then(data => posts.value = data.results);*/
+
+onMounted(() => {
+  fetch('https://pokeapi.co/api/v2/pokemon')
+    .then(res => res.json())
+    .then(data => {
+      const randomIndex = Math.floor(Math.random() * data.results.length);
+      pokemon.value = data.results[randomIndex];
+    });
+});
+
 
 </script>
 
@@ -15,7 +27,12 @@ fetch('https://pokeapi.co/api/v2/pokemon')
   <h2>Pokémon</h2>
   <div class="container">
 
-    <Posta v-for="posta in posts" :key="posta.url" :name="posta.name" :url="posta.url"></Posta>
+    <!--
+            <Posta v-for="posta in posts" :key="posta.url" :name="posta.name" :url="posta.url"></Posta>
+                      -->
+
+    <Posta v-if="pokemon" :key="pokemon.url" :name="pokemon.name" :url="pokemon.url"></Posta>
+    <p v-else>Cargando...</p>
   </div>
 </template>
 
