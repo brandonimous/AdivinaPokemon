@@ -1,11 +1,15 @@
 <script setup>
 import Posta from "./components/Posta.vue";
 
-import { ref, onMounted  } from "vue";
+import { ref, onMounted } from "vue";
 
 const posts = ref([]);
 
 var pokemon = ref(null);
+
+
+const nombre = ref("");
+
 
 /*fetch('https://pokeapi.co/api/v2/pokemon')
   .then(res => res.json())
@@ -20,19 +24,26 @@ onMounted(() => {
     });
 });
 
-
 </script>
 
 <template>
   <h2>Pokémon</h2>
-  <div class="container">
-
-    <!--
-            <Posta v-for="posta in posts" :key="posta.url" :name="posta.name" :url="posta.url"></Posta>
-                      -->
+  <div class="row">
+    <!--<Posta v-for="posta in posts" :key="posta.url" :name="posta.name" :url="posta.url"></Posta>-->
 
     <Posta v-if="pokemon" :key="pokemon.url" :name="pokemon.name" :url="pokemon.url"></Posta>
-    <p v-else>Cargando...</p>
+
+    <div v-else class="progress">
+      <div class="indeterminate"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <input placeholder="Quién es este Pokémon?" type="text" v-model="nombre">
+
+    <div v-if="pokemon && nombre.toLowerCase() === pokemon.name.toLowerCase()">
+      El nombre ingresado coincide con el atributo name.
+    </div>
   </div>
 </template>
 
