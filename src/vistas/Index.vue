@@ -3,29 +3,24 @@
 
   <div class="row" :key="refreshKey">
     <div class="col s6 offset-s3">
-      <input placeholder="p. ej.: charmander" type="text" v-model="nombre">
+      <input placeholder="p. ej.: charmander" type="text" v-model="nombre" >
     </div>
 
-    <div class="col s12" v-if="pokemon && nombre.toLowerCase() === pokemon.name.toLowerCase()">
-      <Posta :key="pokemon.url" :name="pokemon.name" :url="pokemon.url"></Posta>
-      <h5>Correcto!!</h5>
-      <div class="col s12">
-        <button class="green lighten-4" @click="actualizarPokemon">Siguiente Pokémon</button>
-      </div>
+    <div class="col s12" v-if="pokemon">
+      <Posta :key="pokemon.url" :name="pokemon.name" :url="pokemon.url"
+        :bandera="nombre.toLowerCase() !== pokemon.name.toLowerCase()" @eventoActualizarPokemon="actualizarPokemon">
+      </Posta>
     </div>
-
-    <div v-else>
-      <div class="col s12">
-        <Posta class="" v-if="pokemon" :key="pokemon.url" :name="' '" :url="pokemon.url"></Posta>
-        <div v-else class="progress">
-          <div class="indeterminate"></div>
+    <div v-else class="progress">
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper">
+            <div class="circle"></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col s12">
-      <button class="red lighten-4" @click="actualizarPokemon">Me rindo</button>
-    </div>
   </div>
 </template>
 
@@ -55,21 +50,3 @@ const actualizarPokemon = () => {
 };
 
 </script>
-
-<style>
-.icon {
-  height: 300px;
-  width: 300px;
-  font-size: 100px;
-  overflow: hidden;
-  display: inline-flex;
-}
-
-.icon-content {
-  height: auto;
-  display: flex;
-  position: relative;
-  left: -5em;
-  filter: drop-shadow(5em 0 0px #2596be);
-}
-</style>

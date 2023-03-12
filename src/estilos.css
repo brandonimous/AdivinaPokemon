@@ -1,0 +1,38 @@
+.icon {
+    height: 300px;
+    width: 300px;
+    font-size: 100px;
+    overflow: hidden;
+    display: inline-flex;
+}
+
+.icon-content {
+    height: auto;
+    display: flex;
+    position: relative;
+    filter: drop-shadow(5em 0 0px #2596be);
+    left: -5em;
+}
+
+
+
+.iconDesactivado {
+    height: 300px;
+    width: 300px;
+    font-size: 100px;
+    overflow: hidden;
+    display: inline-flex;
+}
+
+.icon-contentDesactivado {
+    height: auto;
+    display: flex;
+    position: relative;
+    filter: drop-shadow(5em 0 0px #2596be);
+}
+
+.invisible {
+
+    display: none;
+
+}
