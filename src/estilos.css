@@ -47,8 +47,8 @@
 }
 
 .estrella {
-    position: relative;
-    width: 60%;
+    position: sticky;
+    width: 70%;
     z-index: -1;
 
     display: block;
