@@ -1,23 +1,32 @@
 <template>
-  <h3>Quién es este Pokémon?</h3>
+  <div class="color-transition">
 
-  <div class="row" :key="refreshKey">
-    <div class="col s6 offset-s3">
-      <input placeholder="p. ej.: charmander" type="text" v-model="nombre" >
-    </div>
+    <img src="public\img\pokemon-estrella.svg" class="estrella">
 
-    <div class="col s12" v-if="pokemon">
-      <Posta :key="pokemon.url" :name="pokemon.name" :url="pokemon.url"
-        :bandera="nombre.toLowerCase() !== pokemon.name.toLowerCase()" @eventoActualizarPokemon="actualizarPokemon">
-      </Posta>
-    </div>
-    <div v-else class="progress">
-      <div class="preloader-wrapper big active">
-        <div class="spinner-layer spinner-blue">
-          <div class="circle-clipper">
-            <div class="circle"></div>
+    <div class="contenido">
+      <h2 class="borde">Quién es este Pokémon?</h2>
+
+      <div class="row" :key="refreshKey">
+        <div class="col s6 offset-s3">
+          <input placeholder="p. ej.: charmander" type="text" v-model="nombre"
+            style="text-align: center; background-color: #f0f8ffdf;" class="blue-grey-text">
+        </div>
+
+        <div class="col s12" v-if="pokemon">
+          <Posta :key="pokemon.url" :name="pokemon.name" :url="pokemon.url"
+            :bandera="nombre.toLowerCase() !== pokemon.name.toLowerCase()" @eventoActualizarPokemon="actualizarPokemon">
+          </Posta>
+        </div>
+        <div v-else class="progress">
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+              <div class="circle-clipper">
+                <div class="circle"></div>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
 
