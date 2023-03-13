@@ -13,14 +13,14 @@ const id = pokemonProp.url.split('/')[6] + '.png';
     </div>
 
     <div v-if="!bandera">
-        <h4>{{ name }}</h4>
-        <button class="red lighten-3" @click="$emit('eventoActualizarPokemon')">Me rindo</button>
-        <button class="green lighten-3" @click="$emit('eventoActualizarPokemon')">Siguiente Pokémon</button>
+        <h4 class="borde">{{ name }}</h4>
+        <button class="red lighten-3 bordeBoton" @click="$emit('eventoActualizarPokemon')">Me rindo</button>
+        <button class="green lighten-3 bordeBoton" @click="$emit('eventoActualizarPokemon')">Siguiente Pokémon</button>
     </div>
     <div v-else="bandera">
-        <h4>????????????</h4>
-        <button class="red lighten-3" @click="$emit('eventoActualizarPokemon')">Me rindo</button>
-        <button class="green lighten-3" disabled>Siguiente Pokémon</button>
+        <h4 class="borde">????????????</h4>
+        <button class="red lighten-3 bordeBoton" @click="$emit('eventoActualizarPokemon')">Me rindo</button>
+        <button class="green lighten-3 bordeBoton" disabled>Siguiente Pokémon</button>
     </div>
 </template>
 
